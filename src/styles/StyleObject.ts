@@ -9,3 +9,9 @@ export const StyleObject = {
     p: 3,
   },
 };
+
+export const ElementStyle = {
+  button: {
+    width: 100,
+  },
+};
