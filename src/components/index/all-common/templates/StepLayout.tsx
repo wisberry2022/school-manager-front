@@ -23,15 +23,17 @@ const StepLayout: FC<StepLayoutProp> = (props) => {
   };
 
   return (
-    <Stack direction="column" sx={{ gap: 2.5 }}>
-      <Typography variant="h4">{TitleSet[pageName]}</Typography>
+    <Stack direction="column" sx={{ width: "100%", gap: 2.5 }}>
+      <Stack direction="row" justifyContent="flex-start">
+        <Typography variant="h4">{TitleSet[pageName]}</Typography>
+      </Stack>
       {children}
-      <Stack direction="row" sx={{ gap: 1 }}>
+      <Stack direction="row" sx={{ gap: 1 }} justifyContent="flex-end">
         <Button variant="outlined" sx={ElementStyle.button} onClick={goPrev}>
           이전
         </Button>
         <Button variant="contained" sx={ElementStyle.button} onClick={goNext}>
-          다음
+          {page === 3 ? "완료" : "다음"}
         </Button>
       </Stack>
     </Stack>
