@@ -3,6 +3,7 @@ export type NavItem = {
   name: string;
   isDefault?: boolean;
   subNav?: NavItem
+  url: string;
 }
 
 export type Nav = {

@@ -1,20 +1,42 @@
 import { nav } from "@/constants/Nav";
-import { Stack, Tab, Tabs } from "@mui/material";
-import { FC, SyntheticEvent, useState } from "react";
+import { List, ListItem, Stack, styled } from "@mui/material";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { FC } from "react";
 
+const TabLink = styled(Link)`
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  font-size: 1.3rem;
+`;
 
 const TopNav: FC = () => {
-  const [tab, setTab] = useState("student");
+  const router = useRouter();
 
-  const onChange = (e: SyntheticEvent, newValue: string) => {
-    setTab(newValue);
-  }
-
-  return <Stack sx={{ boxShadow: 3, p: 3 }}>
-    <Tabs value={tab} onChange={onChange} aria-label="basic tabs example" centered>
-      {Object.keys(nav).map(set => <Tab value={set} label={nav[set].name} />)}
-    </Tabs>
-  </Stack>
-}
+  return (
+    <Stack justifyContent="center" sx={{ boxShadow: 3, p: 3 }}>
+      <List sx={{ display: "flex", justifyContent: "center" }}>
+        {Object.keys(nav).map((set) => {
+          const { id, name, url } = nav[set];
+          return (
+            <ListItem
+              key={id}
+              sx={{
+                p: 0,
+                width: 350,
+                borderBottom:
+                  router.pathname === url ? ".1rem solid #0000ff" : "none",
+              }}
+              data-tab={set}
+            >
+              <TabLink href={url}>{name}</TabLink>
+            </ListItem>
+          );
+        })}
+      </List>
+    </Stack>
+  );
+};
 
 export default TopNav;
