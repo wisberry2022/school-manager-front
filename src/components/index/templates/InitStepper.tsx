@@ -2,8 +2,6 @@ import { StepperSet } from "@/constants/StepperSet";
 import { BasicStepType } from "@/types/Common";
 import { Box, Stack, Step, StepLabel, Stepper } from "@mui/material";
 import { FC, useState } from "react";
-import { useStep } from "../hooks/useStep";
-import { OnetoVoid } from "@/types/Funcs";
 
 type InitStepperProp = {
   step: number;

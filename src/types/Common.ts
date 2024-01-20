@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { OnetoVoid } from "./Funcs";
 
 export type NavItem = {
@@ -26,4 +27,8 @@ export type StepperSetType = {
 export type PageType<T> = {
   step: T;
   goPage: OnetoVoid<T>;
+};
+
+export type PageMapperType = {
+  [key: string]: ReactNode;
 };
