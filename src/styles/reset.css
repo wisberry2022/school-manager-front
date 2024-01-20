@@ -3,3 +3,9 @@ body {
   padding: 0;
   box-sizing: content-box;
 }
+
+a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
