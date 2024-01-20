@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useSetRecoilState } from "recoil";
-import { StepState } from "../../home/states/Step";
+import { StepState } from "../../all-common/states/Step";
 import { Button, Stack, Typography } from "@mui/material";
 import { ElementStyle } from "@/styles/StyleObject";
 

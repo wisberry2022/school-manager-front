@@ -3,7 +3,7 @@ import { BasicStepType } from "@/types/Common";
 import { Box, Stack, Step, StepLabel, Stepper } from "@mui/material";
 import { FC } from "react";
 import { useRecoilValue } from "recoil";
-import { StepState } from "../states/Step";
+import { StepState } from "../../all-common/states/Step";
 
 const InitStepper: FC = () => {
   const step = useRecoilValue(StepState);

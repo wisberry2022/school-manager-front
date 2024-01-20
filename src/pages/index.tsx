@@ -1,5 +1,5 @@
 import BasicInfo from "@/components/index/basic-info/templates/BasicInfo";
-import { IndexPageState } from "@/components/index/home/states/Step";
+import { IndexPageState } from "@/components/index/all-common/states/Step";
 import InitPage from "@/components/index/home/templates/InitPage";
 import InitStepper from "@/components/index/home/organisms/InitStepper";
 import { PageMapperType } from "@/types/Common";

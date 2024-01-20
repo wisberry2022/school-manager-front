@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import { MapperType } from "../types/IndexTypes";
+import { MapperType } from "../../home/types/IndexTypes";
 
 export const StepState = atom<number>({
   key: "StepState",

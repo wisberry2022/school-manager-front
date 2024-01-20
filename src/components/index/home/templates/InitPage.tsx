@@ -2,7 +2,7 @@ import { ElementStyle } from "@/styles/StyleObject";
 import { Avatar, Button, Stack, Typography } from "@mui/material";
 import { FC } from "react";
 import { useSetRecoilState } from "recoil";
-import { StepState } from "../states/Step";
+import { StepState } from "../../all-common/states/Step";
 
 const InitPage: FC = () => {
   const goPage = useSetRecoilState(StepState);
