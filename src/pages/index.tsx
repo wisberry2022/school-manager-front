@@ -5,16 +5,19 @@ import InitStepper from "@/components/index/home/organisms/InitStepper";
 import { PageMapperType } from "@/types/Common";
 import { Stack } from "@mui/material";
 import { useRecoilValue } from "recoil";
+import Lecture from "@/components/index/lecture/templates/Lecture";
+import Staff from "@/components/index/staff/templates/Staff";
+import Student from "@/components/index/student/templates/Student";
 
 const Index = () => {
   const page = useRecoilValue(IndexPageState);
 
   const pages: PageMapperType = {
-    basicInfo: <div>기초업무등록</div>,
     main: <InitPage />,
-    lecture: <div>수업 정보 등록</div>,
-    staff: <div>교직원 정보 등록</div>,
-    student: <div>학생 정보 등록</div>,
+    basicInfo: <BasicInfo />,
+    lecture: <Lecture />,
+    staff: <Staff />,
+    student: <Student />,
   };
 
   return (
