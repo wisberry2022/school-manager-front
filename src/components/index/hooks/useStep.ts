@@ -1,6 +1,6 @@
 import { PageType } from "@/types/Common";
 import { useState } from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { StepState } from "../states/Step";
 
 export const usePage = <T = any>(init?: T): PageType<T> => {
