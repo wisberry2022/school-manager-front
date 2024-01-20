@@ -1,3 +1,5 @@
+import { OnetoVoid } from "./Funcs";
+
 export type NavItem = {
   id: number;
   name: string;
@@ -19,4 +21,9 @@ export type StepType = {
 
 export type StepperSetType = {
   [key in BasicStepType]: StepType;
+};
+
+export type PageType<T> = {
+  step: T;
+  goPage: OnetoVoid<T>;
 };

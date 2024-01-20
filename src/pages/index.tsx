@@ -1,14 +1,7 @@
 import { useStep } from "@/components/index/hooks/useStep";
 import InitStepper from "@/components/index/templates/InitStepper";
 import { ElementStyle } from "@/styles/StyleObject";
-import {
-  Avatar,
-  Button,
-  ButtonGroup,
-  Stack,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Avatar, Button, Stack, Typography } from "@mui/material";
 import React from "react";
 
 const Index = () => {
