@@ -2,13 +2,11 @@ import { ElementStyle } from "@/styles/StyleObject";
 import { OnetoVoid } from "@/types/Funcs";
 import { Avatar, Button, Stack, Typography } from "@mui/material";
 import { FC } from "react";
+import { useSetRecoilState } from "recoil";
+import { StepState } from "../states/Step";
 
-type InitPageProp = {
-  goPage: OnetoVoid<number>;
-};
-
-const InitPage: FC<InitPageProp> = (props) => {
-  const { goPage } = props;
+const InitPage: FC = () => {
+  const goPage = useSetRecoilState(StepState);
 
   return (
     <>

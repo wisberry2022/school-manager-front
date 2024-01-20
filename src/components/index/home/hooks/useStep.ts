@@ -15,16 +15,3 @@ export const usePage = <T = any>(init?: T): PageType<T> => {
     goPage: goPage,
   };
 };
-
-export const useStep = (): PageType<number> => {
-  const [step, setStep] = useRecoilState(StepState);
-
-  const goPage = (page: number) => {
-    setStep(page);
-  };
-
-  return {
-    step: step,
-    goPage: goPage,
-  };
-};

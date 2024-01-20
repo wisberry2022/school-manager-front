@@ -1,14 +1,12 @@
 import { StepperSet } from "@/constants/StepperSet";
 import { BasicStepType } from "@/types/Common";
 import { Box, Stack, Step, StepLabel, Stepper } from "@mui/material";
-import { FC, useState } from "react";
+import { FC } from "react";
+import { useRecoilValue } from "recoil";
+import { StepState } from "../states/Step";
 
-type InitStepperProp = {
-  step: number;
-};
-
-const InitStepper: FC<InitStepperProp> = (prop) => {
-  const { step } = prop;
+const InitStepper: FC = () => {
+  const step = useRecoilValue(StepState);
 
   return (
     <Stack
