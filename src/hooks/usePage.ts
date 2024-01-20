@@ -1,9 +1,7 @@
 import { PageType } from "@/types/Common";
 import { useState } from "react";
-import { useRecoilState } from "recoil";
-import { StepState } from "../states/Step";
 
-export const usePage = <T = any>(init?: T): PageType<T> => {
+const usePage = <T = any>(init?: T): PageType<T> => {
   const [step, setStep] = useState<T | null>(init ? init : null);
 
   const goPage = (page: T) => {
@@ -15,3 +13,5 @@ export const usePage = <T = any>(init?: T): PageType<T> => {
     goPage: goPage,
   };
 };
+
+export default usePage;
