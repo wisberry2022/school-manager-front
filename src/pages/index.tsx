@@ -8,6 +8,7 @@ import { useRecoilValue } from "recoil";
 import Lecture from "@/components/index/lecture/templates/Lecture";
 import Staff from "@/components/index/staff/templates/Staff";
 import Student from "@/components/index/student/templates/Student";
+import StepLayout from "@/components/index/all-common/templates/StepLayout";
 
 const Index = () => {
   const page = useRecoilValue(IndexPageState);
@@ -28,7 +29,7 @@ const Index = () => {
       sx={{ gap: 5 }}
     >
       <InitStepper />
-      {pages[page]}
+      {page === "main" ? pages[page] : <StepLayout>{pages[page]}</StepLayout>}
     </Stack>
   );
 };
