@@ -1,19 +1,17 @@
-import InitPage from "@/components/index/home/templates/InitPage";
+import { IndexPageState } from "@/components/index/all-common/states/Step";
+import StepLayout from "@/components/index/all-common/templates/StepLayout";
+import BasicInfo from "@/components/index/basic-info/templates/BasicInfo";
 import InitStepper from "@/components/index/home/organisms/InitStepper";
+import InitPage from "@/components/index/home/templates/InitPage";
+import Lecture from "@/components/index/lecture/templates/Lecture";
+import Staff from "@/components/index/staff/templates/Staff";
+import Student from "@/components/index/student/templates/Student";
 import { PageMapperType } from "@/types/Common";
 import { Stack } from "@mui/material";
 import { useRecoilValue } from "recoil";
-import { IndexPageState } from "@/components/index/all-common/states/Step";
-import Lecture from "@/components/index/lecture/templates/Lecture";
-import BasicInfo from "@/components/index/basic-info/templates/BasicInfo";
-import Staff from "@/components/index/staff/templates/Staff";
-import Student from "@/components/index/student/templates/Student";
-import StepLayout from "@/components/index/all-common/templates/StepLayout";
-import { useState } from "react";
 
 const Index = () => {
   const page = useRecoilValue(IndexPageState);
-  const [isNext, setNext] = useState<boolean>(false);
 
   const pages: PageMapperType = {
     main: <InitPage />,
@@ -34,9 +32,7 @@ const Index = () => {
       {page === "main" ? (
         pages[page]
       ) : (
-        <StepLayout isNext={isNext} pageName={page}>
-          {pages[page]}
-        </StepLayout>
+        <StepLayout pageName={page}>{pages[page]}</StepLayout>
       )}
     </Stack>
   );
