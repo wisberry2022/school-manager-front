@@ -29,7 +29,11 @@ const Index = () => {
       sx={{ gap: 5 }}
     >
       <InitStepper />
-      {page === "main" ? pages[page] : <StepLayout>{pages[page]}</StepLayout>}
+      {page === "main" ? (
+        pages[page]
+      ) : (
+        <StepLayout pageName={page}>{pages[page]}</StepLayout>
+      )}
     </Stack>
   );
 };

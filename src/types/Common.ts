@@ -32,3 +32,7 @@ export type PageType<T> = {
 export type PageMapperType = {
   [key: string]: ReactNode;
 };
+
+export type ObjType<T> = {
+  [key: string]: T;
+};

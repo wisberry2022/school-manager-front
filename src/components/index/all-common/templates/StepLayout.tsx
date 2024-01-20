@@ -1,15 +1,17 @@
 import { ElementStyle } from "@/styles/StyleObject";
 import { Button, Stack, Typography } from "@mui/material";
 import { FC, ReactNode } from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { StepState } from "../states/Step";
+import { TitleSet } from "../constants/DefaultData";
 
 type StepLayoutProp = {
+  pageName: string;
   children: ReactNode;
 };
 
 const StepLayout: FC<StepLayoutProp> = (props) => {
-  const { children } = props;
+  const { children, pageName } = props;
   const [page, setPage] = useRecoilState(StepState);
 
   const goPrev = () => {
@@ -22,7 +24,7 @@ const StepLayout: FC<StepLayoutProp> = (props) => {
 
   return (
     <Stack direction="column" sx={{ gap: 2.5 }}>
-      <Typography variant="h4">학생 정보 등록</Typography>
+      <Typography variant="h4">{TitleSet[pageName]}</Typography>
       {children}
       <Stack direction="row" sx={{ gap: 1 }}>
         <Button variant="outlined" sx={ElementStyle.button} onClick={goPrev}>
