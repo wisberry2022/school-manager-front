@@ -1,14 +1,16 @@
-import { Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 import { FC } from "react";
-import { useRecoilValue } from "recoil";
-import { IndexPageState } from "../../all-common/states/Step";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import StepperCore from "../../all-common/organisms/StpperCore";
 import { BasicInfoStepperSet } from "../constants/StepperSet";
 import { BasicInfoStepState } from "../states/BasicStep";
+import StepLayout from "../../all-common/templates/StepLayout";
+import { ElementStyle } from "@/styles/StyleObject";
+import { StepState } from "../../all-common/states/Step";
 
 const BasicInfo: FC = () => {
-  const page = useRecoilValue(IndexPageState);
   const step = useRecoilValue(BasicInfoStepState);
+  const setPage = useSetRecoilState(StepState);
 
   return (
     <Stack direction="column" sx={{ gap: 2.5 }}>
@@ -20,9 +22,23 @@ const BasicInfo: FC = () => {
           <StepperCore step={step} stepperSet={BasicInfoStepperSet} />
         </Stack>
       </Stack>
-      <Typography component="p">
-        교직원 유형, 직위 등을 설정 할 수 있습니다.
-      </Typography>
+
+      <Stack
+        justifyContent="flex-end"
+        direction="row"
+        sx={{ width: "100%", gap: 1.5 }}
+      >
+        <Button
+          sx={ElementStyle.button}
+          variant="outlined"
+          onClick={() => setPage(-1)}
+        >
+          이전
+        </Button>
+        <Button sx={ElementStyle.button} variant="contained">
+          다음
+        </Button>
+      </Stack>
     </Stack>
   );
 };

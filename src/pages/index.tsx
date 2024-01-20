@@ -9,9 +9,11 @@ import BasicInfo from "@/components/index/basic-info/templates/BasicInfo";
 import Staff from "@/components/index/staff/templates/Staff";
 import Student from "@/components/index/student/templates/Student";
 import StepLayout from "@/components/index/all-common/templates/StepLayout";
+import { useState } from "react";
 
 const Index = () => {
   const page = useRecoilValue(IndexPageState);
+  const [isNext, setNext] = useState<boolean>(false);
 
   const pages: PageMapperType = {
     main: <InitPage />,
@@ -32,7 +34,9 @@ const Index = () => {
       {page === "main" ? (
         pages[page]
       ) : (
-        <StepLayout pageName={page}>{pages[page]}</StepLayout>
+        <StepLayout isNext={isNext} pageName={page}>
+          {pages[page]}
+        </StepLayout>
       )}
     </Stack>
   );
