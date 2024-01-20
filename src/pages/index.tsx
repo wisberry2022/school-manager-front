@@ -1,7 +1,7 @@
-import { useStep } from "@/components/index/hooks/useStep";
-import { IndexPageState } from "@/components/index/states/Step";
-import InitPage from "@/components/index/templates/InitPage";
-import InitStepper from "@/components/index/templates/InitStepper";
+import { useStep } from "@/components/index/home/hooks/useStep";
+import { IndexPageState } from "@/components/index/home/states/Step";
+import InitPage from "@/components/index/home/templates/InitPage";
+import InitStepper from "@/components/index/home/templates/InitStepper";
 import { PageMapperType } from "@/types/Common";
 import { Stack } from "@mui/material";
 import { useRecoilValue } from "recoil";
