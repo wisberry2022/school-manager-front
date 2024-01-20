@@ -1,4 +1,5 @@
 import { nav } from "@/constants/Nav";
+import { StyleObject } from "@/styles/StyleObject";
 import { List, ListItem, Stack, styled } from "@mui/material";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -15,7 +16,7 @@ const TopNav: FC = () => {
   const router = useRouter();
 
   return (
-    <Stack justifyContent="center" sx={{ boxShadow: 3, p: 3 }}>
+    <Stack justifyContent="center" sx={StyleObject.topNav}>
       <List sx={{ display: "flex", justifyContent: "center" }}>
         {Object.keys(nav).map((set) => {
           const { id, name, url } = nav[set];

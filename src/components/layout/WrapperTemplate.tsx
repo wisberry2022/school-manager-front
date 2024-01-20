@@ -1,3 +1,4 @@
+import { StyleObject } from "@/styles/StyleObject";
 import { Stack } from "@mui/material";
 import { FC, ReactNode } from "react";
 
@@ -7,7 +8,7 @@ type WrapperTemplateProp = {
 
 const WrapperTemplate: FC<WrapperTemplateProp> = ({ children }) => {
   return (
-    <Stack sx={{ marginTop: "2rem", boxShadow: 3, p: 3 }}>{children}</Stack>
+    <Stack sx={{ marginTop: "2rem", ...StyleObject.wrapper }}>{children}</Stack>
   );
 };
 
