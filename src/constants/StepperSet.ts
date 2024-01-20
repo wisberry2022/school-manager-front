@@ -1,6 +1,6 @@
 import { StepperSetType } from "@/types/Common";
 
-export const StepperSet: StepperSetType = {
+export const MainStepperSet: StepperSetType = {
   BASICINFO: {
     id: 1,
     label: "기초업무 등록",

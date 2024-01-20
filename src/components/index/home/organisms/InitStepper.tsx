@@ -1,9 +1,9 @@
-import { StepperSet } from "@/constants/StepperSet";
-import { BasicStepType } from "@/types/Common";
+import { MainStepperSet } from "@/constants/StepperSet";
 import { Box, Stack, Step, StepLabel, Stepper } from "@mui/material";
 import { FC } from "react";
 import { useRecoilValue } from "recoil";
 import { StepState } from "../../all-common/states/Step";
+import StepperCore from "../../all-common/organisms/StpperCore";
 
 const InitStepper: FC = () => {
   const step = useRecoilValue(StepState);
@@ -16,16 +16,7 @@ const InitStepper: FC = () => {
     >
       <Stack sx={{ width: "40%" }}>
         <Box sx={{ width: "100%" }}>
-          <Stepper activeStep={step} alternativeLabel>
-            {Object.keys(StepperSet).map((val) => {
-              const { id, label } = StepperSet[val as BasicStepType];
-              return (
-                <Step key={id} sx={{ width: "50rem" }}>
-                  <StepLabel>{label}</StepLabel>
-                </Step>
-              );
-            })}
-          </Stepper>
+          <StepperCore step={step} stepperSet={MainStepperSet} />
         </Box>
       </Stack>
     </Stack>
