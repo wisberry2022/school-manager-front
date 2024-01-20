@@ -1,7 +1,7 @@
 import BasicInfo from "@/components/index/basic-info/templates/BasicInfo";
 import { IndexPageState } from "@/components/index/home/states/Step";
 import InitPage from "@/components/index/home/templates/InitPage";
-import InitStepper from "@/components/index/home/templates/InitStepper";
+import InitStepper from "@/components/index/home/organisms/InitStepper";
 import { PageMapperType } from "@/types/Common";
 import { Stack } from "@mui/material";
 import { useRecoilValue } from "recoil";

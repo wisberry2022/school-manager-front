@@ -1,5 +1,4 @@
 import { ElementStyle } from "@/styles/StyleObject";
-import { OnetoVoid } from "@/types/Funcs";
 import { Avatar, Button, Stack, Typography } from "@mui/material";
 import { FC } from "react";
 import { useSetRecoilState } from "recoil";
