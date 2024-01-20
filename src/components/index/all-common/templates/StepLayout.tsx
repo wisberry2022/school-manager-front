@@ -4,6 +4,7 @@ import { FC, ReactNode } from "react";
 import { useRecoilState } from "recoil";
 import { StepState } from "../states/Step";
 import { TitleSet } from "../constants/DefaultData";
+import StepperCore from "../organisms/StpperCore";
 
 type StepLayoutProp = {
   pageName: string;
