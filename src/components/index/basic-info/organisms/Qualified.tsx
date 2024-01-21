@@ -1,13 +1,12 @@
+import { FieldCheckValidateArray } from "@/hooks/useValidation";
+import { QualifiedService } from "@/services/QualifiedService";
+import { ElementStyle } from "@/styles/StyleObject";
+import { QualifiedRegisterType } from "@/types/domain/Qualified";
 import { Button, Stack, Typography } from "@mui/material";
 import { FC, useState } from "react";
 import { QualifiedSendData, QualifiedSet } from "../constants/DefaultData";
 import QualifiedForm from "../molecules/QualifiedForm";
-import { ElementStyle } from "@/styles/StyleObject";
-import { QualifiedRegisterType } from "@/types/domain/Qualified";
-import { produce } from "immer";
-import { FieldCheckValidateArray, useValidate } from "@/hooks/useValidation";
 import { QualifiedType } from "../types/QualifiedTypes";
-import { QualifiedService } from "@/services/QualifiedService";
 
 const Qualified: FC = () => {
   const [item, setItem] = useState<QualifiedRegisterType[]>(QualifiedSendData);
@@ -17,7 +16,6 @@ const Qualified: FC = () => {
     "VICE_PRINCIPLE",
     "LICENSED",
   ];
-  // const {CHECK_REQUIRE} = useValidate();
 
   const setCode = (name: string, code: string) => {
     setItem((prev) => {

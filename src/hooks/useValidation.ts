@@ -8,6 +8,8 @@ type FieldCheckValidate = <T = any>(
   ...fields: string[]
 ) => void;
 
+type NotNullValidate = <T = any>(callback: Function, target: T[]) => void;
+
 export type FieldCheckValidateArray<T> = (
   callback: Function,
   target: T[],
@@ -25,7 +27,15 @@ export const useValidate = (): FuncObj => {
     result && callback();
   };
 
+  const notNullValid: NotNullValidate = (callback, rows) => {
+    const result = rows.every((row) =>
+      Object.values(row).every((data) => data)
+    );
+    result && callback();
+  };
+
   return {
     CHECK_REQUIRE: checkRequiredofObject,
+    NOT_NULL: notNullValid,
   };
 };

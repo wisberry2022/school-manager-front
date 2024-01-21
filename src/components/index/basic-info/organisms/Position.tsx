@@ -17,6 +17,9 @@ import {
 } from "@mui/material";
 import { ChangeEventHandler, useState } from "react";
 import { PositionRowType } from "../types/PositionTypes";
+import { PositionService } from "@/services/PositionService";
+import { PositionBulkRegisterType } from "@/types/domain/Position";
+import { useValidate } from "@/hooks/useValidation";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -31,7 +34,7 @@ const createEmptyRow = (id: number): PositionRowType => {
   return { id: id, name: null, code: null };
 };
 
-const toSendData = (rows: PositionRowType[]) => {
+const toSendData = (rows: PositionRowType[]): PositionBulkRegisterType[] => {
   return rows.map((row) => {
     const { id, ...data } = row;
     return data;
@@ -41,6 +44,7 @@ const toSendData = (rows: PositionRowType[]) => {
 const Position = () => {
   const [rows, setRow] = useState<PositionRowType[]>(defaultRow);
   const [items, setItems] = useState<PositionRowType[]>([]);
+  const { NOT_NULL } = useValidate();
 
   const addRow = () => {
     const latestIds = Math.max(...rows.map((row) => row.id));
@@ -61,6 +65,19 @@ const Position = () => {
       }
       return prev.concat({ id: rowNumber, [name]: value } as PositionRowType);
     });
+  };
+
+  const coreSave = async () => {
+    try {
+      const sendData = toSendData(items);
+      await PositionService.bulkRegister(sendData);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const save = () => {
+    NOT_NULL(coreSave, items);
   };
 
   return (
@@ -123,13 +140,7 @@ const Position = () => {
         </TableBody>
       </Table>
       <Stack direction="row" justifyContent="center" sx={{ gap: 1 }}>
-        <Button
-          variant="contained"
-          sx={ElementStyle.button}
-          onClick={() => {
-            console.log("save! ", toSendData(items));
-          }}
-        >
+        <Button variant="contained" sx={ElementStyle.button} onClick={save}>
           저장
         </Button>
         <Button variant="outlined" sx={ElementStyle.button}>
