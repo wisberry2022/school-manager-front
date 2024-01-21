@@ -1,4 +1,8 @@
-type QualifiedType = "PRINCIPLE" | "VICE_PRINCIPLE" | "LICENSED" | "CONTRACT";
+export type QualifiedType =
+  | "PRINCIPLE"
+  | "VICE_PRINCIPLE"
+  | "LICENSED"
+  | "CONTRACT";
 
 export type ContentType = {
   id: number;
