@@ -17,14 +17,6 @@ const BasicInfoLayout: FC<BasicInfoLayoutProp> = (props) => {
         <Divider />
       </Box>
       {children}
-      <Stack direction="row" justifyContent="center" sx={{ gap: 1 }}>
-        <Button variant="contained" sx={ElementStyle.button}>
-          저장
-        </Button>
-        <Button variant="outlined" sx={ElementStyle.button}>
-          취소
-        </Button>
-      </Stack>
     </Stack>
   );
 };

@@ -1,3 +1,4 @@
+import { QualifiedRegisterType } from "@/types/domain/Qualified";
 import { FieldType } from "../types/QualifiedTypes";
 
 export const QualifiedSet: FieldType[] = [
@@ -80,5 +81,28 @@ export const QualifiedSet: FieldType[] = [
         defaultValue: "계약직",
       },
     ],
+  },
+];
+
+export const QualifiedSendData: QualifiedRegisterType[] = [
+  {
+    code: null,
+    name: "교장",
+    type: "PRINCIPLE",
+  },
+  {
+    code: null,
+    name: "교감",
+    type: "VICE_PRINCIPLE",
+  },
+  {
+    code: null,
+    name: "정교사",
+    type: "LICENSED",
+  },
+  {
+    code: null,
+    name: "계약직",
+    type: "CONTRACT",
   },
 ];

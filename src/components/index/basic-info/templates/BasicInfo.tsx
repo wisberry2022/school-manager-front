@@ -1,13 +1,9 @@
 import { Stack, Typography } from "@mui/material";
 import { FC } from "react";
-import { useSetRecoilState } from "recoil";
-import Qualified from "../organisms/Qualified";
-import { StepState } from "../../all-common/states/Step";
 import BasicInfoLayout from "../organisms/Layout";
+import Qualified from "../organisms/Qualified";
 
 const BasicInfo: FC = () => {
-  const setPage = useSetRecoilState(StepState);
-
   return (
     <Stack direction="column" sx={{ gap: 2.5 }}>
       <Typography component="p" sx={{ marginBottom: "4rem" }}>
