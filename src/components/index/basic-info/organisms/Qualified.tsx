@@ -1,88 +1,7 @@
 import { Stack, TextField, Typography } from "@mui/material";
 import { FC } from "react";
-
-const QualifiedSet = [
-  {
-    id: 1,
-    name: "교장",
-    type: "PRINCIPLE",
-    required: true,
-    contents: [
-      {
-        id: 1,
-        name: "code",
-        label: "유형 코드",
-        defaultValue: null,
-      },
-      {
-        id: 2,
-        name: "name",
-        label: "교직원 유형",
-        defaultValue: "교장",
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: "교감",
-    type: "VICE_PRINCIPLE",
-    required: true,
-    contents: [
-      {
-        id: 1,
-        name: "code",
-        label: "유형 코드",
-        defaultValue: null,
-      },
-      {
-        id: 2,
-        name: "name",
-        label: "교직원 유형",
-        defaultValue: "교감",
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "정교사",
-    type: "LICENSED",
-    required: true,
-    contents: [
-      {
-        id: 1,
-        name: "code",
-        label: "유형 코드",
-        defaultValue: null,
-      },
-      {
-        id: 2,
-        name: "name",
-        label: "교직원 유형",
-        defaultValue: "정교사",
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: "계약직",
-    type: "CONTRACT",
-    required: false,
-    contents: [
-      {
-        id: 1,
-        name: "code",
-        label: "유형 코드",
-        defaultValue: null,
-      },
-      {
-        id: 2,
-        name: "name",
-        label: "교직원 유형",
-        defaultValue: "계약직",
-      },
-    ],
-  },
-];
+import QualifiedForm from "../molecules/QualifiedForm";
+import { QualifiedSet } from "../constants/DefaultData";
 
 const Qualified: FC = () => {
   return (
@@ -97,39 +16,9 @@ const Qualified: FC = () => {
         </Typography>
       </Stack>
       <Stack direction="row" justifyContent="center" sx={{ gap: 5 }}>
-        {QualifiedSet.map((qualified) => {
-          const { id, name, type, required, contents } = qualified;
-          return (
-            <Stack
-              direction="row"
-              key={id}
-              justifyContent="space-between"
-              sx={{ width: "20%" }}
-            >
-              <Stack direction="row">
-                <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                  {name}
-                </Typography>
-                {required && (
-                  <Typography sx={{ color: "#ff0000" }}>*</Typography>
-                )}
-              </Stack>
-              <Stack sx={{ gap: 1.5 }}>
-                {contents.map((content) => {
-                  return (
-                    <TextField
-                      key={content.id}
-                      label={content.label}
-                      name={content.name}
-                      defaultValue={content.defaultValue}
-                      disabled={!!content.defaultValue}
-                    />
-                  );
-                })}
-              </Stack>
-            </Stack>
-          );
-        })}
+        {QualifiedSet.map((qualified) => (
+          <QualifiedForm key={qualified.id} field={qualified} />
+        ))}
       </Stack>
     </Stack>
   );
