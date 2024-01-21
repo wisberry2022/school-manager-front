@@ -2,6 +2,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: content-box;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 a {
