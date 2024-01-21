@@ -3,6 +3,8 @@ export const StyleObject = {
     boxShadow: 3,
     px: 3,
     py: 7,
+    height: "60vh",
+    overflowY: "scroll",
   },
   topNav: {
     boxShadow: 3,

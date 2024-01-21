@@ -8,7 +8,14 @@ type WrapperTemplateProp = {
 
 const WrapperTemplate: FC<WrapperTemplateProp> = ({ children }) => {
   return (
-    <Stack sx={{ marginTop: "2rem", ...StyleObject.wrapper }}>{children}</Stack>
+    <Stack
+      sx={{
+        marginTop: "2rem",
+        ...StyleObject.wrapper,
+      }}
+    >
+      {children}
+    </Stack>
   );
 };
 

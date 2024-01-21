@@ -1,14 +1,14 @@
-import BasicInfo from "@/components/index/basic-info/templates/BasicInfo";
 import { IndexPageState } from "@/components/index/all-common/states/Step";
-import InitPage from "@/components/index/home/templates/InitPage";
+import StepLayout from "@/components/index/all-common/templates/StepLayout";
+import BasicInfo from "@/components/index/basic-info/templates/BasicInfo";
 import InitStepper from "@/components/index/home/organisms/InitStepper";
-import { PageMapperType } from "@/types/Common";
-import { Stack } from "@mui/material";
-import { useRecoilValue } from "recoil";
+import InitPage from "@/components/index/home/templates/InitPage";
 import Lecture from "@/components/index/lecture/templates/Lecture";
 import Staff from "@/components/index/staff/templates/Staff";
 import Student from "@/components/index/student/templates/Student";
-import StepLayout from "@/components/index/all-common/templates/StepLayout";
+import { PageMapperType } from "@/types/Common";
+import { Stack } from "@mui/material";
+import { useRecoilValue } from "recoil";
 
 const Index = () => {
   const page = useRecoilValue(IndexPageState);

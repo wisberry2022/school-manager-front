@@ -2,8 +2,8 @@ import { ElementStyle } from "@/styles/StyleObject";
 import { Button, Stack, Typography } from "@mui/material";
 import { FC, ReactNode } from "react";
 import { useRecoilState } from "recoil";
-import { StepState } from "../states/Step";
 import { TitleSet } from "../constants/DefaultData";
+import { StepState } from "../states/Step";
 
 type StepLayoutProp = {
   pageName: string;
@@ -25,7 +25,7 @@ const StepLayout: FC<StepLayoutProp> = (props) => {
   return (
     <Stack direction="column" sx={{ width: "100%", gap: 2.5 }}>
       <Stack direction="row" justifyContent="flex-start">
-        <Typography variant="h4">{TitleSet[pageName]}</Typography>
+        <Typography variant="h3">{TitleSet[pageName]}</Typography>
       </Stack>
       {children}
       <Stack direction="row" sx={{ gap: 1 }} justifyContent="flex-end">

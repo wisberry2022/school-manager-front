@@ -21,7 +21,7 @@ export type StepType = {
 };
 
 export type StepperSetType = {
-  [key in BasicStepType]: StepType;
+  [key: string]: StepType;
 };
 
 export type PageType<T> = {
