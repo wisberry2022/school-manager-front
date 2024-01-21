@@ -1,3 +1,6 @@
+import { ElementStyle } from "@/styles/StyleObject";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import {
   Button,
   Stack,
@@ -12,10 +15,8 @@ import {
   styled,
   tableCellClasses,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import { ElementStyle } from "@/styles/StyleObject";
+import { ChangeEventHandler, useState } from "react";
+import { PositionRowType } from "../types/PositionTypes";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -24,14 +25,22 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-const defaultRow = [{ id: 1, name: null, code: null }];
+const defaultRow: PositionRowType[] = [{ id: 1, name: null, code: null }];
 
-const createEmptyRow = (id: number) => {
+const createEmptyRow = (id: number): PositionRowType => {
   return { id: id, name: null, code: null };
 };
 
+const toSendData = (rows: PositionRowType[]) => {
+  return rows.map((row) => {
+    const { id, ...data } = row;
+    return data;
+  });
+};
+
 const Position = () => {
-  const [rows, setRow] = useState(defaultRow);
+  const [rows, setRow] = useState<PositionRowType[]>(defaultRow);
+  const [items, setItems] = useState<PositionRowType[]>([]);
 
   const addRow = () => {
     const latestIds = Math.max(...rows.map((row) => row.id));
@@ -40,6 +49,18 @@ const Position = () => {
 
   const removeRow = (currentRow: number) => {
     setRow((prev) => prev.filter((row) => row.id !== currentRow));
+    setItems((prev) => prev.filter((row) => row.id !== currentRow));
+  };
+
+  const onChange = (rowNumber: number, name: string, value: string) => {
+    setItems((prev) => {
+      const item = prev.find((data) => data.id === rowNumber);
+      if (item) {
+        const rest = prev.filter((data) => data.id !== rowNumber);
+        return rest.concat({ ...item, [name]: value });
+      }
+      return prev.concat({ id: rowNumber, [name]: value } as PositionRowType);
+    });
   };
 
   return (
@@ -62,10 +83,24 @@ const Position = () => {
           {rows.map((row, idx) => (
             <TableRow key={row.id}>
               <TableCell>
-                <TextField name="name" placeholder="직위명을 입력하세요" />
+                <TextField
+                  name="name"
+                  onChange={(e) => {
+                    const { name, value } = e.target;
+                    onChange(row.id, name, value);
+                  }}
+                  placeholder="직위명을 입력하세요"
+                />
               </TableCell>
               <TableCell>
-                <TextField name="code" placeholder="직위 코드를 입력하세요" />
+                <TextField
+                  name="code"
+                  onChange={(e) => {
+                    const { name, value } = e.target;
+                    onChange(row.id, name, value);
+                  }}
+                  placeholder="직위 코드를 입력하세요"
+                />
               </TableCell>
               <TableCell>
                 <Stack direction="row" sx={{ gap: 0.5 }}>
@@ -88,7 +123,13 @@ const Position = () => {
         </TableBody>
       </Table>
       <Stack direction="row" justifyContent="center" sx={{ gap: 1 }}>
-        <Button variant="contained" sx={ElementStyle.button} onClick={() => {}}>
+        <Button
+          variant="contained"
+          sx={ElementStyle.button}
+          onClick={() => {
+            console.log("save! ", toSendData(items));
+          }}
+        >
           저장
         </Button>
         <Button variant="outlined" sx={ElementStyle.button}>
