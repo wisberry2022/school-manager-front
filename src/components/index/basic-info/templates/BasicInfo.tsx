@@ -2,6 +2,7 @@ import { Stack, Typography } from "@mui/material";
 import { FC } from "react";
 import BasicInfoLayout from "../organisms/Layout";
 import Qualified from "../organisms/Qualified";
+import Position from "../organisms/Position";
 
 const BasicInfo: FC = () => {
   return (
@@ -14,7 +15,9 @@ const BasicInfo: FC = () => {
         <BasicInfoLayout title="STEP01. 교직원 유형 설정">
           <Qualified />
         </BasicInfoLayout>
-        <BasicInfoLayout title="STEP02. 직위 설정"></BasicInfoLayout>
+        <BasicInfoLayout title="STEP02. 직위 설정">
+          <Position />
+        </BasicInfoLayout>
         <BasicInfoLayout title="STEP03. 업무 설정"></BasicInfoLayout>
       </Stack>
     </Stack>
