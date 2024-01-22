@@ -4,4 +4,7 @@ export const Paths = {
     bulkRegister: "/fundamental/qualified/bulk",
     register: "/fundamental/qualified/staff",
   },
+  position: {
+    bulkRegister: "/fundamental/position/bulk",
+  },
 };
